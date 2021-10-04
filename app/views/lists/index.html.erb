@@ -1,0 +1,25 @@
+<%= render :partial => "shared/navbar" %>
+
+<div class="cover align-items-center justify-content-center align-items-center">
+  <div class="text-center text-white">
+    <h1>Save any kind of movies</h1>
+    <h3></h3>
+  </div>
+</div>
+<div >
+  <div class="align-items-center  d-flex  justify-content-between mt-0">
+    <h3>My Lists</h3>
+    <%= link_to 'Create a movie list', new_list_path, class: 'btn btn-flat' %>
+  </div>
+  <div class="row">
+    <% @lists.each do |list| %>
+      <div class="co-12 colsm-6 col-md-4">
+        <%= link_to list_path(list) do %>
+          <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('cine.jpg') %>)">
+            <%= list.name %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
